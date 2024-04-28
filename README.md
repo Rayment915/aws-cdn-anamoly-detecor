@@ -3,7 +3,7 @@ AWS 的用户（特别是游戏行业）被DDoS攻击的时候会瞬间产生大
 
 # 方案介绍
 AWS CloudWatch 提供原生异常检查的[API](https://docs.aws.amazon.com/AmazonCloudWatch/latest/monitoring/CloudWatch_Anomaly_Detection.html)，背后帮你生成一个基于过去2周的实际行为生成一个探测的模型，结合CloudFront 我们可以使用Requests 和 BytesDownloaded 两个metric 来自动产生异常的告警。
-![Image text](https://raw.github.com/rayment915/repositpry/master/aws-cdn-anamoly-detecor/img/1.png)
+![Image text](https://github.com/Rayment915/aws-cdn-anamoly-detecor/blob/main/img/1.png)
 
 ### 1. "ANOMALY_DETECTION BAND" 说明
 ANOMALY DETECTION BAND 会根据您的指标数据历史趋势,自动计算出一个正常范围,也就是异常检测带。当您的指标数据超出这个正常范围时,CloudWatch 就会将其识别为异常,并向您发送警报。因为每个用户CDN 的用量和使用行为都不一样，所以这个值的设置没有一个固定的最佳实践，可以先从2 开始尝试并在CloudWatch 把预期的图形做出来，值越大指标的正常范围越大。
